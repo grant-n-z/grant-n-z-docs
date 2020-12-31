@@ -1,0 +1,31 @@
+<div class="book-post-meta">
+
+  <div class="author">
+
+    <a href="https://github.com/tomoyane/grant-n-z" style="text-align: center;">GitHub GrantNZ</a>
+  </div>
+
+  <% if ( (page.categories && page.categories.length) || (page.tags && page.tags.length) ) { %>
+    <div class="divider"></div>
+
+    <div class="link">
+      <%- list_categories(page.categories, {
+          show_count: false,
+          style: 'none',
+          separator: ' '
+      }) %>
+
+      <%- list_tags(page.tags, {
+          show_count: false,
+          style: 'none',
+          separator: ' ',
+          transform(str) {
+            return "#" + str
+          }
+      }) %>
+    </div>
+
+  <% } %>
+
+  <div class="divider"></div>
+</div>
