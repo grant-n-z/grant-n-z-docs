@@ -1,16 +1,16 @@
-# document
+# GrantNZ official document
 
-# Clean
+## Run server
 ```
-$ hexo clean
+$ hexo s
 ```
 
-# Build
+## Build
 ```
 $ hexo generate
 ```
 
-# Deploy
+## Deploy
 ```
 $ hexo deploy
 ```
