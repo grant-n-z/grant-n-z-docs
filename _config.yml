@@ -99,4 +99,4 @@ theme: book
 deploy:
   type: git
   repo: https://github.com/tomoyane/grant-n-z-docs.git
-  branch: master
+  branch: gh-pages
