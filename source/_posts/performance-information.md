@@ -1,5 +1,5 @@
 ---
-title: performance-information
+title: Performance information
 ---
 
 ## Performance information

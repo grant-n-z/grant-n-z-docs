@@ -1,5 +1,5 @@
 ---
-title: architecture-system
+title: Architecture
 ---
 
 ## System architecture

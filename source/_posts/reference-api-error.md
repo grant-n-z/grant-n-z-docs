@@ -11,7 +11,6 @@ title: API Error response
 |403|Permission denied.|
 |404|Notfound data or Notfound resource.|
 |405|HTTP Method not allowed.|
-|405|HTTP Method not allowed.|
 |409|Conflict data or Conflict resource.|
 |500|Server error.|
 

@@ -1,5 +1,5 @@
 ---
-title: future
+title: Future
 ---
 
 ## Current phase

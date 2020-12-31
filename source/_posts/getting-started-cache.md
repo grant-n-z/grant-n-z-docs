@@ -1,6 +1,6 @@
 ---
-title: getting-started-cache
+title: Getting started Cacher
 ---
 
-## GrantNZ Cache server
+## Cache server
 TDOO
