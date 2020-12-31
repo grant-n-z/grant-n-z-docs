@@ -1,6 +1,6 @@
 ---
-title: getting-started-console
+title: Getting started Console
 ---
 
-## GrantNZ Role management console
+## Role management console
 TDOO

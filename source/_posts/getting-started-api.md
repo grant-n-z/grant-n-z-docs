@@ -1,6 +1,6 @@
 ---
-title: getting-started-api
+title: Getting started API
 ---
 
-## GrantNZ API server
+## API server
 TDOO
