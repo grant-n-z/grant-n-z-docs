@@ -23,7 +23,7 @@ Features of Grant NZ.
 
 GrantNZ is to enable a role based access control.   
 It defines the GrantNZ client role and the group role on the Service.  
-If you want to check the terms: [Terminology](/grant-n-z-docs/articles/terminology/)
+If you want to check the terms: [Terminology](/articles/terminology/)
 
 * GrantNZ client role
   * The GrantNZ client have to register GrantNZ server. Then it can issue ApiKey.
