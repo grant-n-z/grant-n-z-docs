@@ -12,6 +12,6 @@ $ hexo generate
 
 ## Deploy
 ```
-$ hexo deploy
+$ ./deploy.sh
 ```
 

@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 url: https://tomoyane.github.io
-root: /grant-n-z-docs
+root: /
 permalink: articles/:title/
 permalink_defaults:
 pretty_urls:
