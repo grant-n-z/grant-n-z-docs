@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="https://grant-n-z.page/favicon.png" />
+    
+
+    <title>
+        
+          API reference - GrantNZ
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="https://grant-n-z.page/css/book.css">
+
+    
+<script src="https://grant-n-z.page/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="https://grant-n-z.page/" target="_blank" rel="noopener">
+    <img src="https://grant-n-z.page/favicon.png" style="height: 4rem !important; width: 2rem !important;">
+    <img src="/grant-n-z-docs/GrantNZ_font.png" style="width: 130px; height: 30px; margin-left: 4px;">
+  </a>
+</div>
+
+    <div class="book-menu">
+  <ul>
+<li><a href="/grant-n-z-docs">Introduction</a></li>
+<li><a href="/grant-n-z-docs/articles/future">Future</a></li>
+</ul>
+<h1 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a><strong><em>Architecture</em></strong></h1><ul>
+<li><a href="/grant-n-z-docs/articles/architecture-system">System architecture</a></li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a><strong><em>Reference</em></strong></h1><ul>
+<li><a href="/grant-n-z-docs/articles/reference-api-v1">API reference v1</a></li>
+<li><a href="/grant-n-z-docs/articles/reference-api-error">API error response</a></li>
+</ul>
+<h1 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a><strong><em>Performance</em></strong></h1><ul>
+<li><a href="/grant-n-z-docs/articles/performance-information">Performance information</a></li>
+</ul>
+<h1 id="Security"><a href="#Security" class="headerlink" title="Security"></a><strong><em>Security</em></strong></h1><ul>
+<li><a href="/grant-n-z-docs/articles/security">Security</a></li>
+</ul>
+<h1 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a><strong><em>Getting Started</em></strong></h1><ul>
+<li><a href="/grant-n-z-docs/articles/getting-started-api">API Server</a></li>
+<li><a href="/grant-n-z-docs/articles/getting-started-cache">Cache Server</a></li>
+<li><a href="/grant-n-z-docs/articles/getting-started-console">Role management console</a></li>
+</ul>
+<h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a><strong><em>Other</em></strong></h1><ul>
+<li><a href="/grant-n-z-docs/articles/terminology">Terminology</a></li>
+</ul>
+
+</div>
+
+
+<script src="https://grant-n-z.page/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h2 id="API-document"><a href="#API-document" class="headerlink" title="API document"></a>API document</h2><p>Version 1.<br>Url path requires v1.</p>
+<h3 id="GET-auth"><a href="#GET-auth" class="headerlink" title="GET /auth"></a>GET /auth</h3><p>Verify token endpoint.</p>
+<h4 id="HTTP-Header"><a href="#HTTP-Header" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>required</td>
+<td>Token</td>
+<td>Bearer JWT</td>
+</tr>
+<tr>
+<td>Client Secret</td>
+<td>optional</td>
+<td>Client secret info. If decided request server, recommended set Client-Secret.</td>
+<td>Secret</td>
+</tr>
+</tbody></table>
+<h4 id="Path-Parameter"><a href="#Path-Parameter" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><p>None</p>
+<h4 id="Query-Parameter"><a href="#Query-Parameter" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>group_uuid</td>
+<td>optional</td>
+<td>Verify belong group user.</td>
+<td>UUIDv4</td>
+</tr>
+<tr>
+<td>role</td>
+<td>optional</td>
+<td>Comma separated multiple. Verify a role of group.</td>
+<td>admin,data_manager</td>
+</tr>
+<tr>
+<td>permission</td>
+<td>optional</td>
+<td>Comma separated multiple. Verify a permission of group.</td>
+<td>read,write</td>
+</tr>
+</tbody></table>
+<h4 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h4><p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ jwt=&#123;Token&#125;</span><br><span class="line">$ curl -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> https://&#123;HOST NAME&#125;/auth</span><br></pre></td></tr></table></figure>
+
+<h4 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>grant</td>
+<td>Boolean</td>
+<td>Result.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ curl -i -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> https://&#123;HOST NAME&#125;/auth</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">&#123;<span class="string">"grant"</span>: <span class="literal">true</span> | <span class="literal">false</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="GET-services"><a href="#GET-services" class="headerlink" title="GET /services"></a>GET /services</h3><p>Get all services.</p>
+<h4 id="HTTP-Header-1"><a href="#HTTP-Header-1" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><p>None</p>
+<h4 id="Path-Parameter-1"><a href="#Path-Parameter-1" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><p>None</p>
+<h4 id="Query-Parameter-1"><a href="#Query-Parameter-1" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><p>None</p>
+<h4 id="Request-1"><a href="#Request-1" class="headerlink" title="Request"></a>Request</h4><p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl https://&#123;HOST NAME&#125;/services</span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-1"><a href="#Response-1" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>Integer</td>
+<td>Uniq id.</td>
+</tr>
+<tr>
+<td>internal_id</td>
+<td>String</td>
+<td>Internal uniq id.</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>String</td>
+<td>UUIDv4.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Service name.</td>
+</tr>
+<tr>
+<td>secret</td>
+<td>String</td>
+<td>Service client secret.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date</td>
+<td>Generated date.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>Date</td>
+<td>Updated date.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ curl -i https://&#123;HOST NAME&#125;/services</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="string">"id"</span>: 1,</span><br><span class="line">    <span class="string">"internal_id"</span>: <span class="string">"xxxxxxxxxxxxx"</span>,</span><br><span class="line">    <span class="string">"uuid"</span>: <span class="string">"8a7ba9ec-947e-44bd-a9b4-e3f338606dbe"</span>,</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"food_deliverly"</span>,</span><br><span class="line">    <span class="string">"secret"</span>: <span class="string">"1d2f92d224604679b456c656cc55acc6"</span>,</span><br><span class="line">    <span class="string">"created_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span>,</span><br><span class="line">    <span class="string">"updated_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="POST-token"><a href="#POST-token" class="headerlink" title="POST /token"></a>POST /token</h3><p>Issue token.</p>
+<h4 id="HTTP-Header-2"><a href="#HTTP-Header-2" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><p>None</p>
+<h4 id="Path-Parameter-2"><a href="#Path-Parameter-2" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><p>None</p>
+<h4 id="Query-Parameter-2"><a href="#Query-Parameter-2" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td>optional</td>
+<td>The user type. <code>user</code> or <code>operator</code></td>
+<td>user</td>
+</tr>
+</tbody></table>
+<h4 id="Request-2"><a href="#Request-2" class="headerlink" title="Request"></a>Request</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Required</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>password</td>
+<td>required</td>
+<td>String</td>
+<td>Password.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>required</td>
+<td>String</td>
+<td>Email.</td>
+</tr>
+<tr>
+<td>grant_type</td>
+<td>required</td>
+<td>String</td>
+<td><code>password</code> or <code>refresh_token</code></td>
+</tr>
+<tr>
+<td>refresh_token</td>
+<td>optional</td>
+<td>String</td>
+<td>Refresh token.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X POST https://&#123;HOST NAME&#125;/token \</span><br><span class="line">  -d <span class="string">"&#123;\"password\": \"xxxxxxx\", \"email\": \"xxxxxxx@gmail.com\", \"grant_type\": \"password\"&#125;"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-2"><a href="#Response-2" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>token</td>
+<td>String</td>
+<td>Token.</td>
+</tr>
+<tr>
+<td>refresh_token</td>
+<td>String</td>
+<td>Refresh token.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X POST https://&#123;HOST NAME&#125;/token \</span><br><span class="line">  -d <span class="string">"&#123;\"password\": \"xxxxxxx\", \"email\": \"xxxxxxx@gmail.com\", \"grant_type\": \"password\"&#125;"</span></span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"token"</span>: <span class="string">"xxxxxxxxx"</span>,</span><br><span class="line">  <span class="string">"refresh_token"</span>: <span class="string">"xxxxxxxxx"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="POST-users"><a href="#POST-users" class="headerlink" title="POST /users"></a>POST /users</h3><p>Generate user.</p>
+<h4 id="HTTP-Header-3"><a href="#HTTP-Header-3" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Client Secret</td>
+<td>required</td>
+<td>Client secret info.</td>
+<td>Service secret</td>
+</tr>
+</tbody></table>
+<h4 id="Path-Parameter-3"><a href="#Path-Parameter-3" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><p>None</p>
+<h4 id="Query-Parameter-3"><a href="#Query-Parameter-3" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><p>None</p>
+<h4 id="Request-3"><a href="#Request-3" class="headerlink" title="Request"></a>Request</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Required</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>username</td>
+<td>required</td>
+<td>String</td>
+<td>Username.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>required</td>
+<td>String</td>
+<td>Email.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>required</td>
+<td>String</td>
+<td>Password.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ service_secret=&#123;Service secret&#125;</span><br><span class="line">$ curl -X POST https://&#123;HOST NAME&#125;/users \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;service_secret&#125;'</span> \</span><br><span class="line">  -d <span class="string">"&#123;\"password\": \"xxxxxxx\", \"email\": \"xxxxxxx@gmail.com\", \"username\": \"test\"&#125;"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-3"><a href="#Response-3" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>message</td>
+<td>String</td>
+<td>Message.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X POST https://&#123;HOST NAME&#125;/users \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;service_secret&#125;'</span> \</span><br><span class="line">  -d <span class="string">"&#123;\"password\": \"xxxxxxx\", \"email\": \"xxxxxxx@gmail.com\", \"username\": \"test\"&#125;"</span></span><br><span class="line">HTTP/1.1 201 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"message"</span>: <span class="string">"User creation succeeded."</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="PUT-users"><a href="#PUT-users" class="headerlink" title="PUT /users"></a>PUT /users</h3><p>Update user.</p>
+<h4 id="HTTP-Header-4"><a href="#HTTP-Header-4" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>required</td>
+<td>Token</td>
+<td>Bearer JWT</td>
+</tr>
+<tr>
+<td>Client Secret</td>
+<td>required</td>
+<td>Client secret info.</td>
+<td>Service secret</td>
+</tr>
+</tbody></table>
+<h4 id="Path-Parameter-4"><a href="#Path-Parameter-4" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><p>None</p>
+<h4 id="Query-Parameter-4"><a href="#Query-Parameter-4" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><p>None</p>
+<h4 id="Request-4"><a href="#Request-4" class="headerlink" title="Request"></a>Request</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Required</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>username</td>
+<td>required</td>
+<td>String</td>
+<td>Username. If update this one, change it.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>required</td>
+<td>String</td>
+<td>Email. If update this one, change it.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>required</td>
+<td>String</td>
+<td>Password. If update this one, change it.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ jwt=&#123;Token&#125;</span><br><span class="line">$ service_secret=&#123;Service secret&#125;</span><br><span class="line">$ curl -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;service_secret&#125;'</span> \</span><br><span class="line">  -X PUT https://&#123;HOST NAME&#125;/users \</span><br><span class="line">  -d <span class="string">"&#123;\"password\": \"xxxxxxx\", \"email\": \"xxxxxxx@gmail.com\", \"username\": \"test\"&#125;"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-4"><a href="#Response-4" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>message</td>
+<td>String</td>
+<td>Message.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ curl -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;service_secret&#125;'</span> \</span><br><span class="line">  -X PUT https://&#123;HOST NAME&#125;/users \</span><br><span class="line">  -d <span class="string">"&#123;\"password\": \"xxxxxxx\", \"email\": \"xxxxxxx@gmail.com\", \"username\": \"test\"&#125;"</span></span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"message"</span>: <span class="string">"User update succeeded."</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="GET-users-group"><a href="#GET-users-group" class="headerlink" title="GET /users/group"></a>GET /users/group</h3><p>Get groups of user.</p>
+<h4 id="HTTP-Header-5"><a href="#HTTP-Header-5" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>required</td>
+<td>Token</td>
+<td>Bearer JWT</td>
+</tr>
+<tr>
+<td>Client Secret</td>
+<td>optional</td>
+<td>Client secret info.</td>
+<td>Secret</td>
+</tr>
+</tbody></table>
+<h4 id="Path-Parameter-5"><a href="#Path-Parameter-5" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><p>None</p>
+<h4 id="Query-Parameter-5"><a href="#Query-Parameter-5" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><p>None</p>
+<h4 id="Request-5"><a href="#Request-5" class="headerlink" title="Request"></a>Request</h4><p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ jwt=&#123;Token&#125;</span><br><span class="line">$ curl -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  https://&#123;HOST NAME&#125;/users/group</span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-5"><a href="#Response-5" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>Integer</td>
+<td>Uniq id.</td>
+</tr>
+<tr>
+<td>internal_id</td>
+<td>String</td>
+<td>Internal uniq id.</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>String</td>
+<td>UUIDv4.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Group name.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date</td>
+<td>Generated date.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>Date</td>
+<td>Updated date.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ curl -i -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  https://&#123;HOST NAME&#125;/users/group</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="string">"id"</span>: 1,</span><br><span class="line">    <span class="string">"internal_id"</span>: <span class="string">"xxxxxxxxxxxxx"</span>,</span><br><span class="line">    <span class="string">"uuid"</span>: <span class="string">"8a7ba9ec-947e-44bd-a9b4-e3f338606dbe"</span>,</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"group01"</span>,</span><br><span class="line">    <span class="string">"created_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span>,</span><br><span class="line">    <span class="string">"updated_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="POST-users-group"><a href="#POST-users-group" class="headerlink" title="POST /users/group"></a>POST /users/group</h3><p>Register group of service.</p>
+<h4 id="HTTP-Header-6"><a href="#HTTP-Header-6" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>required</td>
+<td>Token</td>
+<td>Bearer JWT</td>
+</tr>
+<tr>
+<td>Client Secret</td>
+<td>required</td>
+<td>Client secret info.</td>
+<td>Secret</td>
+</tr>
+</tbody></table>
+<h4 id="Path-Parameter-6"><a href="#Path-Parameter-6" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><p>None</p>
+<h4 id="Query-Parameter-6"><a href="#Query-Parameter-6" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><p>None</p>
+<h4 id="Request-6"><a href="#Request-6" class="headerlink" title="Request"></a>Request</h4><p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ jwt=&#123;Token&#125;</span><br><span class="line">$ client_secret=&#123;Service Secret&#125;</span><br><span class="line">$ curl -X POST -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span> \</span><br><span class="line">  https://&#123;HOST NAME&#125;/users/group \</span><br><span class="line">  -d <span class="string">"&#123;\"name\": \"xxxxxxx\"&#125;"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-6"><a href="#Response-6" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>Integer</td>
+<td>Uniq id.</td>
+</tr>
+<tr>
+<td>internal_id</td>
+<td>String</td>
+<td>Internal uniq id.</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>String</td>
+<td>UUIDv4.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Group name.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date</td>
+<td>Generated date.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>Date</td>
+<td>Updated date.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X POST -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">    -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span> \</span><br><span class="line">    https://&#123;HOST NAME&#125;/users/group \</span><br><span class="line">    -d <span class="string">"&#123;\"name\": \"xxxxxxx\"&#125;"</span></span><br><span class="line"></span><br><span class="line">HTTP/1.1 201 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"id"</span>: 1,</span><br><span class="line">  <span class="string">"internal_id"</span>: <span class="string">"xxxxxxxxxxxxx"</span>,</span><br><span class="line">  <span class="string">"uuid"</span>: <span class="string">"8a7ba9ec-947e-44bd-a9b4-e3f338606dbe"</span>,</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"group01"</span>,</span><br><span class="line">  <span class="string">"created_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span>,</span><br><span class="line">  <span class="string">"updated_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="GET-users-service"><a href="#GET-users-service" class="headerlink" title="GET /users/service"></a>GET /users/service</h3><p>Get services of user.</p>
+<h4 id="HTTP-Header-7"><a href="#HTTP-Header-7" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>required</td>
+<td>Token</td>
+<td>Bearer JWT</td>
+</tr>
+</tbody></table>
+<h4 id="Path-Parameter-7"><a href="#Path-Parameter-7" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><p>None</p>
+<h4 id="Query-Parameter-7"><a href="#Query-Parameter-7" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><p>None</p>
+<h4 id="Request-7"><a href="#Request-7" class="headerlink" title="Request"></a>Request</h4><p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ jwt=&#123;Token&#125;</span><br><span class="line">$ curl -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  https://&#123;HOST NAME&#125;/users/service</span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-7"><a href="#Response-7" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>Integer</td>
+<td>Uniq id.</td>
+</tr>
+<tr>
+<td>internal_id</td>
+<td>String</td>
+<td>Internal uniq id.</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>String</td>
+<td>UUIDv4.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Service name.</td>
+</tr>
+<tr>
+<td>secret</td>
+<td>String</td>
+<td>Service client secret.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date</td>
+<td>Generated date.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>Date</td>
+<td>Updated date.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ curl -i -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  https://&#123;HOST NAME&#125;/users/service</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="string">"id"</span>: 1,</span><br><span class="line">    <span class="string">"internal_id"</span>: <span class="string">"xxxxxxxxxxxxx"</span>,</span><br><span class="line">    <span class="string">"uuid"</span>: <span class="string">"8a7ba9ec-947e-44bd-a9b4-e3f338606dbe"</span>,</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"food_deliverly"</span>,</span><br><span class="line">    <span class="string">"secret"</span>: <span class="string">"1d2f92d224604679b456c656cc55acc6"</span>,</span><br><span class="line">    <span class="string">"created_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span>,</span><br><span class="line">    <span class="string">"updated_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="GET-users-policy"><a href="#GET-users-policy" class="headerlink" title="GET /users/policy"></a>GET /users/policy</h3><p>Get policies of user.</p>
+<h4 id="HTTP-Header-8"><a href="#HTTP-Header-8" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>required</td>
+<td>Token</td>
+<td>Bearer JWT</td>
+</tr>
+</tbody></table>
+<h4 id="Path-Parameter-8"><a href="#Path-Parameter-8" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><p>None</p>
+<h4 id="Query-Parameter-8"><a href="#Query-Parameter-8" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><p>None</p>
+<h4 id="Request-8"><a href="#Request-8" class="headerlink" title="Request"></a>Request</h4><p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ jwt=&#123;Token&#125;</span><br><span class="line">$ curl -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  https://&#123;HOST NAME&#125;/users/policy</span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-8"><a href="#Response-8" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>String</td>
+<td>Policy name.</td>
+</tr>
+<tr>
+<td>role_name</td>
+<td>String</td>
+<td>Role name.</td>
+</tr>
+<tr>
+<td>role_uuid</td>
+<td>String</td>
+<td>Role uniq id.</td>
+</tr>
+<tr>
+<td>permission_name</td>
+<td>String</td>
+<td>Permission name.</td>
+</tr>
+<tr>
+<td>permission_uuid</td>
+<td>String</td>
+<td>Permission uniq id.</td>
+</tr>
+<tr>
+<td>service_name</td>
+<td>String</td>
+<td>Service name.</td>
+</tr>
+<tr>
+<td>service_uuid</td>
+<td>String</td>
+<td>Service uniq id.</td>
+</tr>
+<tr>
+<td>group_name</td>
+<td>String</td>
+<td>Group name.</td>
+</tr>
+<tr>
+<td>group_uuid</td>
+<td>String</td>
+<td>Group uniq id.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ curl -i -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  https://&#123;HOST NAME&#125;/users/policy</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"policy01"</span>,</span><br><span class="line">    <span class="string">"role_name"</span>: <span class="string">"role01"</span>,</span><br><span class="line">    <span class="string">"role_uuid"</span>: <span class="string">"8a7ba9ec-947e-44bd-a9b4-e3f338606dbe"</span>,</span><br><span class="line">    <span class="string">"permission_name"</span>: <span class="string">"permission01"</span>,</span><br><span class="line">    <span class="string">"permission_uuid"</span>: <span class="string">"1cd1d41f-b322-4d03-af3b-023da5e60bb0"</span>,</span><br><span class="line">    <span class="string">"service_name"</span>: <span class="string">"service01"</span>,</span><br><span class="line">    <span class="string">"service_uuid"</span>: <span class="string">"4082f766-30b6-43e4-a4d7-9e8c7dd4f514"</span>,</span><br><span class="line">    <span class="string">"group_name"</span>: <span class="string">"group01"</span>,</span><br><span class="line">    <span class="string">"group_uuid"</span>: <span class="string">"09ecef1f-2d06-4776-9b3b-2b1b40c25652"</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="GET-groups"><a href="#GET-groups" class="headerlink" title="GET /groups"></a>GET /groups</h3><p>Get groups of a service.<br>Required user role of service.</p>
+<h4 id="HTTP-Header-9"><a href="#HTTP-Header-9" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>required</td>
+<td>Token</td>
+<td>Bearer JWT</td>
+</tr>
+<tr>
+<td>Client Secret</td>
+<td>required</td>
+<td>Client secret info</td>
+<td>Secret</td>
+</tr>
+</tbody></table>
+<h4 id="Path-Parameter-9"><a href="#Path-Parameter-9" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>group uuid</td>
+<td>Group uniq id</td>
+<td>13209548-e7df-4ce7-b00f-e88d5de2f2d5</td>
+</tr>
+</tbody></table>
+<h4 id="Query-Parameter-9"><a href="#Query-Parameter-9" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><p>None</p>
+<h4 id="Request-9"><a href="#Request-9" class="headerlink" title="Request"></a>Request</h4><p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ jwt=&#123;Token&#125;</span><br><span class="line">$ client_secret=&#123;Service secret&#125;</span><br><span class="line">$ curl -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span></span><br><span class="line">  https://&#123;HOST NAME&#125;/groups/13209548-e7df-4ce7-b00f-e88d5de2f2d5</span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-9"><a href="#Response-9" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>Integer</td>
+<td>Uniq id.</td>
+</tr>
+<tr>
+<td>internal_id</td>
+<td>String</td>
+<td>Internal uniq id.</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>String</td>
+<td>UUIDv4.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Group name.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date</td>
+<td>Generated date.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>Date</td>
+<td>Updated date.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ curl -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span></span><br><span class="line">  https://&#123;HOST NAME&#125;/groups/13209548-e7df-4ce7-b00f-e88d5de2f2d5</span><br><span class="line"></span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"id"</span>: 1,</span><br><span class="line">  <span class="string">"internal_id"</span>: <span class="string">"xxxxxxxxxxxxx"</span>,</span><br><span class="line">  <span class="string">"uuid"</span>: <span class="string">"8a7ba9ec-947e-44bd-a9b4-e3f338606dbe"</span>,</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"group01"</span>,</span><br><span class="line">  <span class="string">"created_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span>,</span><br><span class="line">  <span class="string">"updated_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="GET-groups-G-ID-user"><a href="#GET-groups-G-ID-user" class="headerlink" title="GET /groups/{G_ID}/user"></a>GET /groups/{G_ID}/user</h3><p>Get users of group in a service.<br>Required admin role of service.</p>
+<h4 id="HTTP-Header-10"><a href="#HTTP-Header-10" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>required</td>
+<td>Token</td>
+<td>Bearer JWT</td>
+</tr>
+<tr>
+<td>Client Secret</td>
+<td>required</td>
+<td>Client secret info</td>
+<td>Secret</td>
+</tr>
+</tbody></table>
+<h4 id="Path-Parameter-10"><a href="#Path-Parameter-10" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>group uuid</td>
+<td>Group uniq id</td>
+<td>13209548-e7df-4ce7-b00f-e88d5de2f2d5</td>
+</tr>
+</tbody></table>
+<h4 id="Query-Parameter-10"><a href="#Query-Parameter-10" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><p>None</p>
+<h4 id="Request-10"><a href="#Request-10" class="headerlink" title="Request"></a>Request</h4><p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ jwt=&#123;Token&#125;</span><br><span class="line">$ client_secret=&#123;Service secret&#125;</span><br><span class="line">$ curl -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span></span><br><span class="line">  https://&#123;HOST NAME&#125;/groups/13209548-e7df-4ce7-b00f-e88d5de2f2d5/user</span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-10"><a href="#Response-10" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>uuid</td>
+<td>Integer</td>
+<td>User uniq id.</td>
+</tr>
+<tr>
+<td>username</td>
+<td>String</td>
+<td>User name.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>User email.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ curl -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span></span><br><span class="line">  https://&#123;HOST NAME&#125;/groups/13209548-e7df-4ce7-b00f-e88d5de2f2d5/user</span><br><span class="line"></span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line"> &#123;</span><br><span class="line">   <span class="string">"uuid"</span>: <span class="string">"8a7ba9ec-947e-44bd-a9b4-e3f338606dbe"</span>,</span><br><span class="line">   <span class="string">"username"</span>: <span class="string">"username01"</span>,</span><br><span class="line">   <span class="string">"email"</span>: <span class="string">"xxx@gmail.com"</span></span><br><span class="line"> &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="PUT-groups-G-ID-user"><a href="#PUT-groups-G-ID-user" class="headerlink" title="PUT /groups/{G_ID}/user"></a>PUT /groups/{G_ID}/user</h3><p>Add user of group in a service.<br>Required admin role of service.</p>
+<h4 id="HTTP-Header-11"><a href="#HTTP-Header-11" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>required</td>
+<td>Token</td>
+<td>Bearer JWT</td>
+</tr>
+<tr>
+<td>Client Secret</td>
+<td>required</td>
+<td>Client secret info</td>
+<td>Secret</td>
+</tr>
+</tbody></table>
+<h4 id="Path-Parameter-11"><a href="#Path-Parameter-11" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>group uuid</td>
+<td>Group uniq id</td>
+<td>13209548-e7df-4ce7-b00f-e88d5de2f2d5</td>
+</tr>
+</tbody></table>
+<h4 id="Query-Parameter-11"><a href="#Query-Parameter-11" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><p>None</p>
+<h4 id="Request-11"><a href="#Request-11" class="headerlink" title="Request"></a>Request</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user_email</td>
+<td>String</td>
+<td>User email.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ jwt=&#123;Token&#125;</span><br><span class="line">$ client_secret=&#123;Service secret&#125;</span><br><span class="line">$ curl -X PUT \</span><br><span class="line">  -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span></span><br><span class="line">  https://&#123;HOST NAME&#125;/groups/13209548-e7df-4ce7-b00f-e88d5de2f2d5/user \</span><br><span class="line">  -d <span class="string">"&#123;\"user_email\": \"xxxx@gmail.com\"&#125;"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-11"><a href="#Response-11" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>Integer</td>
+<td>Uniq id.</td>
+</tr>
+<tr>
+<td>internal_id</td>
+<td>String</td>
+<td>Internal uniq id.</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>String</td>
+<td>UUIDv4.</td>
+</tr>
+<tr>
+<td>user_uuid</td>
+<td>String</td>
+<td>User uniq id.</td>
+</tr>
+<tr>
+<td>group_uuid</td>
+<td>String</td>
+<td>Group uniq id.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date</td>
+<td>Generated date.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>Date</td>
+<td>Updated date.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X PUT \</span><br><span class="line">  -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span></span><br><span class="line">  https://&#123;HOST NAME&#125;/groups/13209548-e7df-4ce7-b00f-e88d5de2f2d5/user \</span><br><span class="line">  -d <span class="string">"&#123;\"user_email\": \"xxxx@gmail.com\"&#125;"</span></span><br><span class="line"></span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"id"</span>: 1,</span><br><span class="line">  <span class="string">"internal_id"</span>: <span class="string">"xxxxx"</span>,   </span><br><span class="line">  <span class="string">"uuid"</span>: <span class="string">"8a7ba9ec-947e-44bd-a9b4-e3f338606dbe"</span>,</span><br><span class="line">  <span class="string">"user_uuid"</span>: <span class="string">"23ab98ca-dc05-474c-8c16-c03d77dd64da"</span>,</span><br><span class="line">  <span class="string">"group_uuid"</span>: <span class="string">"aa1a92a4-20f1-4ba1-b178-cf0e1edf9566"</span>,</span><br><span class="line">  <span class="string">"created_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span>,</span><br><span class="line">  <span class="string">"updated_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="GET-groups-G-ID-policy"><a href="#GET-groups-G-ID-policy" class="headerlink" title="GET /groups/{G_ID}/policy"></a>GET /groups/{G_ID}/policy</h3><p>Get policies of all user group in a service.<br>Required admin role of service.</p>
+<h4 id="HTTP-Header-12"><a href="#HTTP-Header-12" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>required</td>
+<td>Token</td>
+<td>Bearer JWT</td>
+</tr>
+<tr>
+<td>Client Secret</td>
+<td>required</td>
+<td>Client secret info</td>
+<td>Secret</td>
+</tr>
+</tbody></table>
+<h4 id="Path-Parameter-12"><a href="#Path-Parameter-12" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>group uuid</td>
+<td>Group uniq id</td>
+<td>13209548-e7df-4ce7-b00f-e88d5de2f2d5</td>
+</tr>
+</tbody></table>
+<h4 id="Query-Parameter-12"><a href="#Query-Parameter-12" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><p>None</p>
+<h4 id="Request-12"><a href="#Request-12" class="headerlink" title="Request"></a>Request</h4><p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ jwt=&#123;Token&#125;</span><br><span class="line">$ client_secret=&#123;Service secret&#125;</span><br><span class="line">$ curl -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span></span><br><span class="line">  https://&#123;HOST NAME&#125;/groups/13209548-e7df-4ce7-b00f-e88d5de2f2d5/policy</span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-12"><a href="#Response-12" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>username</td>
+<td>String</td>
+<td>User name.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>User email.</td>
+</tr>
+<tr>
+<td>service_name</td>
+<td>String</td>
+<td>Service name.</td>
+</tr>
+<tr>
+<td>policy_name</td>
+<td>String</td>
+<td>Policy name.</td>
+</tr>
+<tr>
+<td>role_name</td>
+<td>String</td>
+<td>Role name.</td>
+</tr>
+<tr>
+<td>permission_name</td>
+<td>String</td>
+<td>Permission name.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ curl -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span></span><br><span class="line">  https://&#123;HOST NAME&#125;/groups/13209548-e7df-4ce7-b00f-e88d5de2f2d5/policy</span><br><span class="line"></span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line"> &#123;</span><br><span class="line">   <span class="string">"username"</span>: <span class="string">"username01"</span>,</span><br><span class="line">   <span class="string">"email"</span>: <span class="string">"xxx@gmail.com"</span>,</span><br><span class="line">   <span class="string">"service_name"</span>: <span class="string">"service_name01"</span>,</span><br><span class="line">   <span class="string">"policy_name"</span>: <span class="string">"policy_name01"</span>,</span><br><span class="line">   <span class="string">"role_name"</span>: <span class="string">"role_name01"</span>,</span><br><span class="line">   <span class="string">"permission_name"</span>: <span class="string">"permission_name01"</span></span><br><span class="line"> &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="PUT-groups-G-ID-policy"><a href="#PUT-groups-G-ID-policy" class="headerlink" title="PUT /groups/{G_ID}/policy"></a>PUT /groups/{G_ID}/policy</h3><p>Update policy of user of group in a service.<br>Required admin role of service.</p>
+<h4 id="HTTP-Header-13"><a href="#HTTP-Header-13" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>required</td>
+<td>Token</td>
+<td>Bearer JWT</td>
+</tr>
+<tr>
+<td>Client Secret</td>
+<td>required</td>
+<td>Client secret info</td>
+<td>Secret</td>
+</tr>
+</tbody></table>
+<h4 id="Path-Parameter-13"><a href="#Path-Parameter-13" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>group uuid</td>
+<td>Group uniq id</td>
+<td>13209548-e7df-4ce7-b00f-e88d5de2f2d5</td>
+</tr>
+</tbody></table>
+<h4 id="Query-Parameter-13"><a href="#Query-Parameter-13" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><p>None</p>
+<h4 id="Request-13"><a href="#Request-13" class="headerlink" title="Request"></a>Request</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Required</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>required</td>
+<td>String</td>
+<td>Policy name.</td>
+</tr>
+<tr>
+<td>to_user_email</td>
+<td>required</td>
+<td>String</td>
+<td>To user email.</td>
+</tr>
+<tr>
+<td>role_uuid</td>
+<td>required</td>
+<td>String</td>
+<td>Role uniq id.</td>
+</tr>
+<tr>
+<td>permission_uuid</td>
+<td>required</td>
+<td>String</td>
+<td>Permission uniq id.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ jwt=&#123;Token&#125;</span><br><span class="line">$ client_secret=&#123;Service secret&#125;</span><br><span class="line">$ curl -X PUT \</span><br><span class="line">  -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span></span><br><span class="line">  https://&#123;HOST NAME&#125;/groups/13209548-e7df-4ce7-b00f-e88d5de2f2d5/policy \</span><br><span class="line">  -d <span class="string">"\"name\": \"policy_name\", \"to_user_email\": \"xxx@gmail.com\", \"role_uuid\": \"d8791354-bcaa-43ae-891e-dc3e32212b95\", \"permission_uuid\": \"fa989c43-0eef-461c-a018-c0f2ca90366c\""</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-13"><a href="#Response-13" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>Integer</td>
+<td>Uniq id.</td>
+</tr>
+<tr>
+<td>internal_id</td>
+<td>String</td>
+<td>Internal uniq id.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Policy name.</td>
+</tr>
+<tr>
+<td>role_uuid</td>
+<td>String</td>
+<td>Role uniq id.</td>
+</tr>
+<tr>
+<td>permission_uuid</td>
+<td>String</td>
+<td>Permission uniq id.</td>
+</tr>
+<tr>
+<td>service_uuid</td>
+<td>String</td>
+<td>Service uniq id.</td>
+</tr>
+<tr>
+<td>user_group_uuid</td>
+<td>String</td>
+<td>User group uniq id.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date</td>
+<td>Generated date.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>Date</td>
+<td>Updated date.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X PUT \</span><br><span class="line">  -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span></span><br><span class="line">  https://&#123;HOST NAME&#125;/groups/13209548-e7df-4ce7-b00f-e88d5de2f2d5/policy \</span><br><span class="line">  -d <span class="string">"\"name\": \"policy_name\", \"to_user_email\": \"xxx@gmail.com\", \"role_uuid\": \"d8791354-bcaa-43ae-891e-dc3e32212b95\", \"permission_uuid\": \"fa989c43-0eef-461c-a018-c0f2ca90366c\""</span></span><br><span class="line"></span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"id"</span>: 1,</span><br><span class="line">  <span class="string">"internal_id"</span>: <span class="string">"xxxxxxxxxxxxx"</span>,</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"policy01"</span>,</span><br><span class="line">  <span class="string">"role_name"</span>: <span class="string">"role01"</span>,</span><br><span class="line">  <span class="string">"role_uuid"</span>: <span class="string">"8a7ba9ec-947e-44bd-a9b4-e3f338606dbe"</span>,</span><br><span class="line">  <span class="string">"permission_uuid"</span>: <span class="string">"1cd1d41f-b322-4d03-af3b-023da5e60bb0"</span>,</span><br><span class="line">  <span class="string">"service_uuid"</span>: <span class="string">"4082f766-30b6-43e4-a4d7-9e8c7dd4f514"</span>,</span><br><span class="line">  <span class="string">"user_group_uuid"</span>: <span class="string">"09ecef1f-2d06-4776-9b3b-2b1b40c25652"</span>,</span><br><span class="line">  <span class="string">"created_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span>,</span><br><span class="line">  <span class="string">"updated_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="GET-groups-G-ID-role"><a href="#GET-groups-G-ID-role" class="headerlink" title="GET /groups/{G_ID}/role"></a>GET /groups/{G_ID}/role</h3><p>Get roles of group in a service.<br>Required user role of service.</p>
+<h4 id="HTTP-Header-14"><a href="#HTTP-Header-14" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>required</td>
+<td>Token</td>
+<td>Bearer JWT</td>
+</tr>
+<tr>
+<td>Client Secret</td>
+<td>required</td>
+<td>Client secret info</td>
+<td>Secret</td>
+</tr>
+</tbody></table>
+<h4 id="Path-Parameter-14"><a href="#Path-Parameter-14" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>group uuid</td>
+<td>Group uniq id</td>
+<td>13209548-e7df-4ce7-b00f-e88d5de2f2d5</td>
+</tr>
+</tbody></table>
+<h4 id="Query-Parameter-14"><a href="#Query-Parameter-14" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><p>None</p>
+<h4 id="Request-14"><a href="#Request-14" class="headerlink" title="Request"></a>Request</h4><p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ jwt=&#123;Token&#125;</span><br><span class="line">$ client_secret=&#123;Service secret&#125;</span><br><span class="line">$ curl -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span></span><br><span class="line">  https://&#123;HOST NAME&#125;/groups/13209548-e7df-4ce7-b00f-e88d5de2f2d5/role</span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-14"><a href="#Response-14" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>Integer</td>
+<td>Uniq id.</td>
+</tr>
+<tr>
+<td>internal_id</td>
+<td>String</td>
+<td>Internal uniq id.</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>String</td>
+<td>UUIDv4.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Role name.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date</td>
+<td>Generated date.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>Date</td>
+<td>Updated date.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ curl -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span></span><br><span class="line">  https://&#123;HOST NAME&#125;/groups/13209548-e7df-4ce7-b00f-e88d5de2f2d5/role</span><br><span class="line"></span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line"> &#123;</span><br><span class="line">   <span class="string">"id"</span>: 1,</span><br><span class="line">   <span class="string">"internal_id"</span>: <span class="string">"xxxxxxxxxxxxx"</span>,</span><br><span class="line">   <span class="string">"uuid"</span>: <span class="string">"8a7ba9ec-947e-44bd-a9b4-e3f338606dbe"</span>,</span><br><span class="line">   <span class="string">"name"</span>: <span class="string">"role01"</span>,</span><br><span class="line">   <span class="string">"created_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span>,</span><br><span class="line">   <span class="string">"updated_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span></span><br><span class="line"> &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="POST-groups-G-ID-role"><a href="#POST-groups-G-ID-role" class="headerlink" title="POST /groups/{G_ID}/role"></a>POST /groups/{G_ID}/role</h3><p>Register role of group in a service.<br>Required admin role of service.</p>
+<h4 id="HTTP-Header-15"><a href="#HTTP-Header-15" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>required</td>
+<td>Token</td>
+<td>Bearer JWT</td>
+</tr>
+<tr>
+<td>Client Secret</td>
+<td>required</td>
+<td>Client secret info.</td>
+<td>Secret</td>
+</tr>
+</tbody></table>
+<h4 id="Path-Parameter-15"><a href="#Path-Parameter-15" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><p>None</p>
+<h4 id="Query-Parameter-15"><a href="#Query-Parameter-15" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><p>None</p>
+<h4 id="Request-15"><a href="#Request-15" class="headerlink" title="Request"></a>Request</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>String</td>
+<td>Role name.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ jwt=&#123;Token&#125;</span><br><span class="line">$ client_secret=&#123;Service Secret&#125;</span><br><span class="line">$ curl -X POST -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span> \</span><br><span class="line">  https://&#123;HOST NAME&#125;/users/role \</span><br><span class="line">  -d <span class="string">"&#123;\"name\": \"xxxxxxx\"&#125;"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-15"><a href="#Response-15" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>Integer</td>
+<td>Uniq id.</td>
+</tr>
+<tr>
+<td>internal_id</td>
+<td>String</td>
+<td>Internal uniq id.</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>String</td>
+<td>UUIDv4.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Role name.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date</td>
+<td>Generated date.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>Date</td>
+<td>Updated date.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X POST -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">    -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span> \</span><br><span class="line">    https://&#123;HOST NAME&#125;/users/role \</span><br><span class="line">    -d <span class="string">"&#123;\"name\": \"xxxxxxx\"&#125;"</span></span><br><span class="line"></span><br><span class="line">HTTP/1.1 201 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"id"</span>: 1,</span><br><span class="line">  <span class="string">"internal_id"</span>: <span class="string">"xxxxxxxxxxxxx"</span>,</span><br><span class="line">  <span class="string">"uuid"</span>: <span class="string">"8a7ba9ec-947e-44bd-a9b4-e3f338606dbe"</span>,</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"role01"</span>,</span><br><span class="line">  <span class="string">"created_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span>,</span><br><span class="line">  <span class="string">"updated_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="DELETE-groups-G-ID-role"><a href="#DELETE-groups-G-ID-role" class="headerlink" title="DELETE /groups/{G_ID}/role"></a>DELETE /groups/{G_ID}/role</h3><p>Not implementation.</p>
+<h3 id="GET-groups-G-ID-permission"><a href="#GET-groups-G-ID-permission" class="headerlink" title="GET /groups/{G_ID}/permission"></a>GET /groups/{G_ID}/permission</h3><p>Get permissions of group in a service.<br>Required user role of service.</p>
+<h4 id="HTTP-Header-16"><a href="#HTTP-Header-16" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>required</td>
+<td>Token</td>
+<td>Bearer JWT</td>
+</tr>
+<tr>
+<td>Client Secret</td>
+<td>required</td>
+<td>Client secret info</td>
+<td>Secret</td>
+</tr>
+</tbody></table>
+<h4 id="Path-Parameter-16"><a href="#Path-Parameter-16" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>group uuid</td>
+<td>Group uniq id</td>
+<td>13209548-e7df-4ce7-b00f-e88d5de2f2d5</td>
+</tr>
+</tbody></table>
+<h4 id="Query-Parameter-16"><a href="#Query-Parameter-16" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><p>None</p>
+<h4 id="Request-16"><a href="#Request-16" class="headerlink" title="Request"></a>Request</h4><p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ jwt=&#123;Token&#125;</span><br><span class="line">$ client_secret=&#123;Service secret&#125;</span><br><span class="line">$ curl -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span></span><br><span class="line">  https://&#123;HOST NAME&#125;/groups/13209548-e7df-4ce7-b00f-e88d5de2f2d5/permission</span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-16"><a href="#Response-16" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>Integer</td>
+<td>Uniq id.</td>
+</tr>
+<tr>
+<td>internal_id</td>
+<td>String</td>
+<td>Internal uniq id.</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>String</td>
+<td>UUIDv4.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Permission name.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date</td>
+<td>Generated date.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>Date</td>
+<td>Updated date.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ curl -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span></span><br><span class="line">  https://&#123;HOST NAME&#125;/groups/13209548-e7df-4ce7-b00f-e88d5de2f2d5/permission</span><br><span class="line"></span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line"> &#123;</span><br><span class="line">   <span class="string">"id"</span>: 1,</span><br><span class="line">   <span class="string">"internal_id"</span>: <span class="string">"xxxxxxxxxxxxx"</span>,</span><br><span class="line">   <span class="string">"uuid"</span>: <span class="string">"8a7ba9ec-947e-44bd-a9b4-e3f338606dbe"</span>,</span><br><span class="line">   <span class="string">"name"</span>: <span class="string">"permission01"</span>,</span><br><span class="line">   <span class="string">"created_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span>,</span><br><span class="line">   <span class="string">"updated_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span></span><br><span class="line"> &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="POST-groups-G-ID-permission"><a href="#POST-groups-G-ID-permission" class="headerlink" title="POST /groups/{G_ID}/permission"></a>POST /groups/{G_ID}/permission</h3><p>Register permission of group in a service.<br>Required admin role of service.</p>
+<h4 id="HTTP-Header-17"><a href="#HTTP-Header-17" class="headerlink" title="HTTP Header"></a>HTTP Header</h4><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authorization</td>
+<td>required</td>
+<td>Token</td>
+<td>Bearer JWT</td>
+</tr>
+<tr>
+<td>Client Secret</td>
+<td>required</td>
+<td>Client secret info.</td>
+<td>Secret</td>
+</tr>
+</tbody></table>
+<h4 id="Path-Parameter-17"><a href="#Path-Parameter-17" class="headerlink" title="Path Parameter"></a>Path Parameter</h4><p>None</p>
+<h4 id="Query-Parameter-17"><a href="#Query-Parameter-17" class="headerlink" title="Query Parameter"></a>Query Parameter</h4><p>None</p>
+<h4 id="Request-17"><a href="#Request-17" class="headerlink" title="Request"></a>Request</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>String</td>
+<td>Permission name.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ jwt=&#123;Token&#125;</span><br><span class="line">$ client_secret=&#123;Service Secret&#125;</span><br><span class="line">$ curl -X POST -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">  -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span> \</span><br><span class="line">  https://&#123;HOST NAME&#125;/users/permission \</span><br><span class="line">  -d <span class="string">"&#123;\"name\": \"xxxxxxx\"&#125;"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Response-17"><a href="#Response-17" class="headerlink" title="Response"></a>Response</h4><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Schema</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>Integer</td>
+<td>Uniq id.</td>
+</tr>
+<tr>
+<td>internal_id</td>
+<td>String</td>
+<td>Internal uniq id.</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>String</td>
+<td>UUIDv4.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Permission name.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date</td>
+<td>Generated date.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>Date</td>
+<td>Updated date.</td>
+</tr>
+</tbody></table>
+<p>Example.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X POST -H <span class="string">'Authorization: Bearer $&#123;jwt&#125;'</span> \</span><br><span class="line">    -H <span class="string">'Client-Secret: $&#123;client_secret&#125;'</span> \</span><br><span class="line">    https://&#123;HOST NAME&#125;/users/permission \</span><br><span class="line">    -d <span class="string">"&#123;\"name\": \"xxxxxxx\"&#125;"</span></span><br><span class="line"></span><br><span class="line">HTTP/1.1 201 OK</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Date: Wed, 30 Dec 2020 13:56:13 GMT</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"id"</span>: 1,</span><br><span class="line">  <span class="string">"internal_id"</span>: <span class="string">"xxxxxxxxxxxxx"</span>,</span><br><span class="line">  <span class="string">"uuid"</span>: <span class="string">"8a7ba9ec-947e-44bd-a9b4-e3f338606dbe"</span>,</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"permission01"</span>,</span><br><span class="line">  <span class="string">"created_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span>,</span><br><span class="line">  <span class="string">"updated_at"</span>: <span class="string">"yyyymmdd hhmmsssss"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="DELETE-groups-G-ID-permission"><a href="#DELETE-groups-G-ID-permission" class="headerlink" title="DELETE /groups/{G_ID}/permission"></a>DELETE /groups/{G_ID}/permission</h3><p>Not implementation.</p>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="https://grant-n-z.page/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg" style="">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <a href="https://github.com/tomoyane/grant-n-z" target="_blank" rel="noopener" style="text-align: center;">GitHub GrantNZ</a>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+
+  
+
+  <div class="book-tocbot">
+</div>
+<!-- <div class="book-tocbot-menu"> -->
+<!--   <a class="book-toc-expand" onclick="expand_toc()">Expand all</a> -->
+<!--   <a onclick="go_top()">Back to top</a> -->
+<!--   <a onclick="go_bottom()">Go to bottom</a> -->
+<!-- </div> -->
+
+
+<script src="https://grant-n-z.page/js/book-toc.js"></script>
+
+
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="https://grant-n-z.page/js/book.js"></script>
+
