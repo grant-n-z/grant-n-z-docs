@@ -27,5 +27,3 @@ comments:
     adminUser: # GitHub repository owner and collaborators
     labels: 'gitalk' # GitHub issue labels
     distractionFreeMode: true
-
-google_analytics: # UA-XXXXX-Y

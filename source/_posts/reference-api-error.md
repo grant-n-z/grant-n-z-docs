@@ -17,7 +17,7 @@ title: API Error response
 ### Response body
 |Value|Schema|Description|
 |---|---|---|
-|code|Boolean|Status code.|
-|title|Boolean|Error title.|
-|message|Boolean|Error message.|
+|code|String|Status code.|
+|title|String|Error title.|
+|message|String|Error message.|
 |error_code|String|Error identifier code. If you implement handling, use this.|
