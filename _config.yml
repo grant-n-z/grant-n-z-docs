@@ -98,5 +98,5 @@ theme: book
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/tomoyane/grant-n-z-docs.git
+  repo: git@github.com:tomoyane/grant-n-z-docs.git
   branch: gh-pages
