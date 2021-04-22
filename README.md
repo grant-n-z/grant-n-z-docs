@@ -1,4 +1,5 @@
 # GrantNZ official document
+This GrantNZ official document repository.
 
 ## Run server
 ```
